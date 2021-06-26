@@ -149,5 +149,40 @@ private ["_weatherUpdateArray","_weatherUpdateForecasts"];
 	};
 };
 
+fnc_changeWeather = {
+    //  [_nextWeather] spawn fnc_changeWeather;
+    //  ["Clear"] spawn fnc_changeWeather;
+    //  "Clear"
+    //  "Overcast"
+    //  "Rain"
+    //  "Rainstorm"
+    //  "Light Fog"
+    //  "Fog"
+    //
+    // Weather Types        (#)             [Can Move From/To]
+    // Clear                (0)             [0,1,5]
+    // Overcast             (1)             [0,1,2]
+    // Light Rain           (2)             [1,2,3,5]
+    // Medium Rain          (3)             [2,3,4]
+    // Rainstorm            (4)             [3]
+    // Light Fog            (5)             [0,2,5,6]
+    // Medium fog           (6)             [5,6,7]
+    // Dense Fog            (7)             [6]
+	params[
+		["_nextWeather", ""]
+	];
+    switch (_nextWeather) do {
+        case "Clear": { _nextWeather = 0 };
+        case "Overcast": { _nextWeather = 1 };
+        case "Rain": { _nextWeather = selectRandom [2,2,3,3] };
+        case "Rainstorm": { _nextWeather = 4 };
+        case "Light Fog": { _nextWeather = 5 };
+        case "Fog": { _nextWeather = selectRandom [6,6,7] };
+        default { _nextWeather = 0 };
+    };
+    missionNamespace setVariable ["rw2_Next_Weather" , _nextWeather];
+
+};
+
 // Run Initial Weather Function for all.
 [] spawn mb_fnc_InitialWeather;

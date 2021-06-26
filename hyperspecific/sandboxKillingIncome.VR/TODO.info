@@ -1,0 +1,7 @@
+
+
+Penalty for killing friendlies
+    Empty vehicles are CIV, so potentially add variable at creation that's like "originalSide"
+
+Yabhon ATGM missiles not being registered as the instigator when direct-killing (aka targeting infantry)?
+Crashing into enemy with Sentinel also doesn't register.

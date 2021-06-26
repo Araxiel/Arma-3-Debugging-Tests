@@ -1,0 +1,82 @@
+//	Descriptions
+author			= "Araxiel";
+onLoadName		= "AAF Le Port Sandbox";
+onLoadMission	= "A infantry-centric sandbox mission with randomly generated objectives.";
+loadScreen		= "\a3\missions_f_bootcamp\data\img\boot_m04_overview_ca.paa";
+
+//	Parameters
+
+enableDebugConsole = 1; // only for logged hosts
+allowFunctionsLog = 0;
+
+respawn = 3;
+respawnOnStart = -1;
+respawnDelay = 15;
+respawnTemplates[] = { "Wave","Tickets","MenuPosition","MenuInventory", "EndMission"};
+
+class Params
+{
+  class incomeMultiplier {
+    title = "Income Multiplier";
+    values[] = {1,2,3,4,5,6,7,8};
+    texts[] = {"x0.5","x1","x1.25","x1.5","x2","x3","x5","x10"};
+    default = 2;
+  };
+  class startingFunds {
+    title = "Starting Funds";
+    values[] = {50,100,250,300,500,1000,2000,10000};
+    default = 300;
+  };
+  class startingTickets {
+    title = "Starting Tickets";
+    values[] = {0,5,10,15,99};
+    default = 5;
+  };
+  class initialWeatherParam {
+    title = "Starting Weather";
+    values[] = {0,1,2,3,4};
+    texts[] = {"Clear","Overcast","Rain","Fog","Random"};
+    default = 4;
+  };
+	class BIS_WLStartingDaytime
+	{
+		title = $STR_A3_combatpatrol_params_1;
+		values[] = { 100, -6, 0, 6, -12 };
+		texts[] = { $STR_A3_WL_param37_value1, $STR_A3_combatpatrol_params_3, $STR_A3_MP_COOP_m03_noon, $STR_A3_MP_COOP_m03_evening, $STR_A3_combatpatrol_params_6 };
+		default = 100;
+	};
+	class BIS_WLTimeAcceleration
+	{
+		title = $STR_A3_WL_param2_title;
+		values[] = { 1, 2, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24 };
+		texts[] = { $STR_special_none, "x2", "x4", "x5", "x6", "x8", "x10", "x12", "x14", "x16", "x18", "x20", "x22", "x24" };
+		default = 6;
+	};
+	class passiveIncomeEnabled
+	{
+		title = "Passive Income";
+		texts[] = {"Disabled", "Enabled"};
+		values[] = {0,1};
+		default = 1;
+	};
+	class aDebugMessages
+	{
+		title = "Debug Information";
+		texts[] = {"Disabled", "Enabled"};
+		values[] = {0,1};
+		default = 1;
+	};
+};
+
+//Imported Stuff
+#include "CfgRespawnInventory.hpp"					  // Respawn inventory
+
+#include "modules\grad-listBuymenu\grad_listBuymenu.hpp"
+#include "modules\grad-moneymenu\grad_moneymenu.hpp"
+#include "modules\grad-parameters.hpp"			  //Configuration for buymenu and moneymenu
+#include "stores.hpp"					  //Shops to buy stuff
+
+class CfgFunctions {
+    #include "modules\grad-listBuymenu\cfgFunctions.hpp"
+    #include "modules\grad-moneymenu\cfgFunctions.hpp"
+};

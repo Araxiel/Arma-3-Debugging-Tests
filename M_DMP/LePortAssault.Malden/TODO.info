@@ -1,0 +1,21 @@
+
+
+Long-Term
+    - Custom Spawn Script (Retire DMP)
+        - Optional switch to have civilians that give penalty if killed
+        - Penalty for killing friendlies
+            Empty vehicles are CIV, so potentially add variable at creation that's like "originalSide"
+    - Custom Mission Script
+    
+    - Save income (and other data)
+
+Medium-Term:
+    - Check if maybe getting rid of moneyMenu
+        Or alter it.
+    - Switch hints from tasks to drawIcon3D
+    - Fix MLRS
+    - When dismissing, instead of deleting, unit will move to base (and gets deleted there)
+    - Reinforcements that get dropped off and join
+
+Short-term:
+    - Investigate unlimited mortar

@@ -1,0 +1,3 @@
+class CfgGradMoneymenu {
+    canTransferToSidesDefault[] = {"independent"};
+};
